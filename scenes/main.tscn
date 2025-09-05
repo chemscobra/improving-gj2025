@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cawj070kh6mp8"]
+
+[ext_resource type="Shader" uid="uid://ckmhda8sxsuqy" path="res://shaders/pixel.gdshader" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://8gn70aoxr51v" path="res://assets/splash.png" id="2_sugp2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
+shader = ExtResource("1_0wfyh")
+shader_parameter/intensity = 0.5
+shader_parameter/glitch_frequency = 2.0
+shader_parameter/glitch_duration = 0.1
+shader_parameter/red_displacement = 0.0
+shader_parameter/green_displacement = 0.013
+shader_parameter/blue_displacement = 0.02
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/noise_intensity = 0.2
+shader_parameter/slice_intensity = 0.4
+shader_parameter/ghost_intensity = 0.1
+shader_parameter/negative_intensity = 0.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Splash" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jyhfs")
+position = Vector2(489, 306)
+texture = ExtResource("2_sugp2")

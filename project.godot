@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ImprovingGJ2025"
+run/main_scene="uid://cawj070kh6mp8"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="uid://bgsstrf7uvdkh"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=600
+
+[dotnet]
+
+project/assembly_name="ImprovingGJ2025"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://raw/": "red",
+"res://scenes/": "teal",
+"res://shaders/": "orange"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
