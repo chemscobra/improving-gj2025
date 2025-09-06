@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://tvebdcuu57of"]
+
+[ext_resource type="Script" uid="uid://beojvkikweo6x" path="res://scenes/player/components/jump_component.gd" id="2_lvxji"]
+
+[sub_resource type="Gradient" id="Gradient_dovo2"]
+colors = PackedColorArray(0.392157, 0, 0.737255, 1, 0.623529, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmlin"]
+gradient = SubResource("Gradient_dovo2")
+width = 35
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
+radius = 17.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_gmlin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lvxji")
+
+[node name="JumpComponent" type="Node" parent="."]
+script = ExtResource("2_lvxji")
+wall_jump_velocity = 500.0
+
+[node name="CoyoteTimer" type="Timer" parent="JumpComponent"]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="JumpComponent"]
+wait_time = 0.12
+one_shot = true
