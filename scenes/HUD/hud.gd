@@ -5,15 +5,12 @@ extends CanvasLayer
 
 func _ready() -> void:
 	GlobalState.health_changed.connect(load_hearts)
+	GlobalState.reset_health()
 	GlobalState.litter_counter_changed.connect(update_litter_counter)
-	load_hearts()
 
-func load_hearts():
-	if hearts_full == null:
-		print("Hearts full not assigned in HUD")
-		return
-	var heart_count = GlobalState.health
-	hearts_full.size = Vector2(heart_count * 64, 64)
+
+func load_hearts(new_health: int):
+	hearts_full.size = Vector2(new_health * 64, 64)
 
 func update_litter_counter(new_value: int) -> void:
 	litter_counter_label.text = str(new_value)

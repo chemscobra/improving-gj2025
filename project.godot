@@ -94,6 +94,14 @@ dialogic_default_action={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="floor"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="hazard"
+2d_physics/layer_5="collectible"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

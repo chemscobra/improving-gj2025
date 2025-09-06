@@ -1,7 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://tvebdcuu57of"]
+[gd_scene load_steps=13 format=3 uid="uid://tvebdcuu57of"]
 
 [ext_resource type="Script" uid="uid://jghlh6vg104h" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Shader" uid="uid://cr31eepua4ug0" path="res://shaders/hit_flash.gdshader" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://beojvkikweo6x" path="res://scenes/player/components/jump_component.gd" id="2_lvxji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvxji"]
+shader = ExtResource("2_gmlin")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Gradient" id="Gradient_dovo2"]
 colors = PackedColorArray(0.392157, 0, 0.737255, 1, 0.623529, 1, 1, 1)
@@ -21,10 +27,49 @@ size = Vector2(38, 68)
 radius = 25.0
 height = 94.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "HitFlash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"HitFlash": SubResource("Animation_gmlin"),
+&"RESET": SubResource("Animation_lvxji")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 30
 script = ExtResource("1_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lvxji")
 texture = SubResource("GradientTexture2D_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,6 +78,7 @@ shape = SubResource("CapsuleShape2D_lvxji")
 [node name="JumpComponent" type="Node" parent="."]
 script = ExtResource("2_lvxji")
 wall_jump_velocity = 500.0
+coyote_time = 0.4
 
 [node name="CoyoteTimer" type="Timer" parent="JumpComponent"]
 wait_time = 0.1
@@ -49,12 +95,21 @@ position_smoothing_speed = 30.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["player"]]
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_8afob")
 
-[node name="Collect" type="Area2D" parent="." groups=["player"]]
+[node name="Collect" type="Area2D" parent="."]
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collect"]
 shape = SubResource("CapsuleShape2D_dovo2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lvxji")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
