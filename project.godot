@@ -51,6 +51,14 @@ folder_colors={
 "res://singletons/": "green"
 }
 
+[global_group]
+
+collectible=""
+enemy=""
+dialog=""
+hazard=""
+player=""
+
 [input]
 
 jump={

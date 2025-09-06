@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://tvebdcuu57of"]
+[gd_scene load_steps=8 format=3 uid="uid://tvebdcuu57of"]
 
+[ext_resource type="Script" uid="uid://jghlh6vg104h" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://beojvkikweo6x" path="res://scenes/player/components/jump_component.gd" id="2_lvxji"]
 
 [sub_resource type="Gradient" id="Gradient_dovo2"]
@@ -13,7 +14,15 @@ width = 35
 radius = 17.0
 height = 64.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
+size = Vector2(38, 68)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
+radius = 25.0
+height = 94.0
+
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_gmlin")
@@ -39,3 +48,13 @@ position_smoothing_enabled = true
 position_smoothing_speed = 30.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_8afob")
+
+[node name="Collect" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect"]
+shape = SubResource("CapsuleShape2D_dovo2")

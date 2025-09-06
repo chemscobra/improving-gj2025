@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d50k6t6fpcmy"]
+[gd_scene load_steps=5 format=3 uid="uid://d50k6t6fpcmy"]
 
 [ext_resource type="Texture2D" uid="uid://bocoy62c12gvo" path="res://assets/hud_heart_empty.svg" id="1_glunx"]
 [ext_resource type="Script" uid="uid://concvwbe4pxwv" path="res://scenes/HUD/hud.gd" id="1_jjobl"]
 [ext_resource type="Texture2D" uid="uid://v1htrurfd42q" path="res://assets/hud_heart.svg" id="2_jjobl"]
+[ext_resource type="FontFile" uid="uid://c3e0uucfwpg32" path="res://assets/Nunito-Bold.ttf" id="4_epp0c"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("hearts_full")]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_jjobl")
-hearts_full = NodePath("HeartsFull")
 
 [node name="HeartsEmpty" type="TextureRect" parent="."]
 offset_right = 192.0
@@ -19,3 +19,15 @@ offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("2_jjobl")
 stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_epp0c")
+theme_override_font_sizes/font_size = 50
+text = "0"
+vertical_alignment = 1
