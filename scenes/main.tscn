@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cawj070kh6mp8"]
+[gd_scene load_steps=6 format=3 uid="uid://cawj070kh6mp8"]
 
 [ext_resource type="PackedScene" uid="uid://tvebdcuu57of" path="res://scenes/player/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://d50k6t6fpcmy" path="res://scenes/HUD/hud.tscn" id="2_0wfyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(488, 20)
@@ -59,7 +60,7 @@ shape = SubResource("RectangleShape2D_o5qli")
 texture = SubResource("GradientTexture2D_0wfyh")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(762, 183)
+position = Vector2(765, 181)
 rotation = 1.57079
 metadata/_edit_group_ = true
 
@@ -68,3 +69,5 @@ shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
 texture = SubResource("GradientTexture2D_0wfyh")
+
+[node name="HUD" parent="." instance=ExtResource("2_0wfyh")]

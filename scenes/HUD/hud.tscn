@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d50k6t6fpcmy"]
+
+[ext_resource type="Texture2D" uid="uid://bocoy62c12gvo" path="res://assets/hud_heart_empty.svg" id="1_glunx"]
+[ext_resource type="Script" uid="uid://concvwbe4pxwv" path="res://scenes/HUD/hud.gd" id="1_jjobl"]
+[ext_resource type="Texture2D" uid="uid://v1htrurfd42q" path="res://assets/hud_heart.svg" id="2_jjobl"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("hearts_full")]
+script = ExtResource("1_jjobl")
+hearts_full = NodePath("HeartsFull")
+
+[node name="HeartsEmpty" type="TextureRect" parent="."]
+offset_right = 192.0
+offset_bottom = 64.0
+texture = ExtResource("1_glunx")
+stretch_mode = 1
+
+[node name="HeartsFull" type="TextureRect" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_jjobl")
+stretch_mode = 1
