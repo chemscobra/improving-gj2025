@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://m7arxyuq483l"]
+[gd_scene load_steps=2 format=3 uid="uid://m7arxyuq483l"]
 
-[ext_resource type="Texture2D" uid="uid://cnlju7xok7bg4" path="res://assets/block_spikes.svg" id="1_hh53t"]
+[ext_resource type="Texture2D" uid="uid://2wkrteloo3i8" path="res://assets/Assets.png" id="1_hh53t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh53t"]
-size = Vector2(60, 60)
+[node name="Hazard" type="Node2D"]
+scale = Vector2(0.1, 0.1)
 
-[node name="Hazard" type="Sprite2D" groups=["enemy", "hazard"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hh53t")
+region_enabled = true
+region_rect = Rect2(3697, 988, 617, 588)
+region_filter_clip_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy", "hazard"]]
 collision_layer = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_hh53t")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-110, -290, -160, 0, -280, 100, -300, 280, 300, 280, 260, 190, 190, -30, 100, 200, -20, 10)

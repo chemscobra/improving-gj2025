@@ -29,4 +29,4 @@ func _on_hitbox_area_entered(_area: Area2D) -> void:
 		var direction = (global_position - _area.global_position).normalized()
 		apply_knockback(direction, 300.0, 0.2)
 		if GlobalState.health <= 0:
-			get_tree().reload_current_scene()
+			get_tree().call_deferred("reload_current_scene")

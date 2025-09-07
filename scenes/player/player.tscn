@@ -74,11 +74,13 @@ texture = SubResource("GradientTexture2D_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lvxji")
+debug_color = Color(0.97388, 0, 0.430821, 0.42)
 
 [node name="JumpComponent" type="Node" parent="."]
 script = ExtResource("2_lvxji")
 wall_jump_velocity = 500.0
 coyote_time = 0.4
+wall_coyote_time = 0.2
 
 [node name="CoyoteTimer" type="Timer" parent="JumpComponent"]
 wait_time = 0.1
@@ -94,6 +96,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 30.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_bottom_margin = 0.46
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 collision_mask = 12
@@ -106,6 +110,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collect"]
 shape = SubResource("CapsuleShape2D_dovo2")
+debug_color = Color(0.667231, 0.510821, 0, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

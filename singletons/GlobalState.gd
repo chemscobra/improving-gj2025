@@ -24,8 +24,9 @@ var litter_counter: int:
         return _litter_counter
 
 
-func reset_health():
+func reset_counters():
     self.health = 3
+    self.litter_counter = 0
 
 func increment_litter(amount: int = 1):
     litter_counter += amount

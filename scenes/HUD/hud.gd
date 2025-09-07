@@ -5,8 +5,8 @@ extends CanvasLayer
 
 func _ready() -> void:
 	GlobalState.health_changed.connect(load_hearts)
-	GlobalState.reset_health()
 	GlobalState.litter_counter_changed.connect(update_litter_counter)
+	GlobalState.reset_counters()
 
 
 func load_hearts(new_health: int):
