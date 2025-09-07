@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cu8oy0u1l0ua1"
+path="res://.godot/imported/Nero's voice.mp3-0e3f98ac70d609bb77d7558c0a5c67fc.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Nero's voice.mp3"
+dest_files=["res://.godot/imported/Nero's voice.mp3-0e3f98ac70d609bb77d7558c0a5c67fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,32 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://d50k6t6fpcmy"]
+[gd_scene load_steps=6 format=3 uid="uid://d50k6t6fpcmy"]
 
 [ext_resource type="Texture2D" uid="uid://bocoy62c12gvo" path="res://assets/hud_heart_empty.svg" id="1_glunx"]
 [ext_resource type="Script" uid="uid://concvwbe4pxwv" path="res://scenes/HUD/hud.gd" id="1_jjobl"]
 [ext_resource type="Texture2D" uid="uid://v1htrurfd42q" path="res://assets/hud_heart.svg" id="2_jjobl"]
 [ext_resource type="FontFile" uid="uid://c3e0uucfwpg32" path="res://assets/Nunito-Bold.ttf" id="4_epp0c"]
+[ext_resource type="Texture2D" uid="uid://ceg2qco7xlnqy" path="res://assets/litter.png" id="4_r7rnh"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_jjobl")
 
 [node name="HeartsEmpty" type="TextureRect" parent="."]
-offset_right = 192.0
-offset_bottom = 64.0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 228.0
+offset_bottom = 100.0
 texture = ExtResource("1_glunx")
 stretch_mode = 1
 
 [node name="HeartsFull" type="TextureRect" parent="."]
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 100.0
 texture = ExtResource("2_jjobl")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -103.0
+offset_top = 35.0
+offset_right = -63.0
+offset_bottom = 104.0
 grow_horizontal = 0
+theme_override_constants/separation = 31
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_r7rnh")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.942403, 0.511209, 0.011401, 1)
+theme_override_colors/font_shadow_color = Color(0.398704, 0.146992, 0.0523616, 1)
 theme_override_fonts/font = ExtResource("4_epp0c")
 theme_override_font_sizes/font_size = 50
 text = "0"

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw6ud0ujigsrr"]
+
+[ext_resource type="Script" uid="uid://cb6a6cup6fuyw" path="res://scenes/menu.gd" id="1_con2f"]
+[ext_resource type="FontFile" uid="uid://c3e0uucfwpg32" path="res://assets/Nunito-Bold.ttf" id="1_vjb58"]
+[ext_resource type="Theme" uid="uid://b6koegqny7y6x" path="res://scenes/new_theme.tres" id="2_con2f"]
+[ext_resource type="AudioStream" uid="uid://becge28nepy2e" path="res://assets/music/ES_Courting - View Points.mp3" id="4_mhnvy"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 83.0
+offset_top = -223.0
+offset_right = 567.0
+offset_bottom = -116.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.944687, 0.361466, 0.279662, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vjb58")
+theme_override_font_sizes/font_size = 78
+text = "Nero’s ascent"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_con2f")
+text = "Start"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mhnvy")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

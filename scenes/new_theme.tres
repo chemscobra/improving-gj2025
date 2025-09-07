@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b6koegqny7y6x"]
+
+[ext_resource type="FontFile" uid="uid://d2nb6187tao7c" path="res://assets/Nunito-Regular.ttf" id="1_lcwsu"]
+
+[resource]
+default_font = ExtResource("1_lcwsu")
+default_font_size = 25

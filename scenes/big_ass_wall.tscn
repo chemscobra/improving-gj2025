@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://us0pkl6u5mjd"]
+
+[ext_resource type="Texture2D" uid="uid://2wkrteloo3i8" path="res://assets/Assets.png" id="1_7d2dr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(440, 668)
+
+[node name="BigAssWall5" type="StaticBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.754, 0.866)
+texture = ExtResource("1_7d2dr")
+region_enabled = true
+region_rect = Rect2(3693, 1768, 643, 803)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_sugp2")

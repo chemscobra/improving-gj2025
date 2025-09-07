@@ -6,5 +6,10 @@ uniform float flash_modifier: hint_range(0.0, 1.0) = 0.0;
 void fragment() {
 	vec4 texture_color = texture(TEXTURE, UV);
 	vec4 final_color = mix(texture_color, flash_color, flash_modifier);
-	COLOR = final_color;
+
+	if (texture_color.a > 0.0) {
+        COLOR = final_color;
+    } else {
+        COLOR = texture_color;  // fully transparent remains unchanged
+    }
 }

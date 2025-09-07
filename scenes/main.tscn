@@ -1,41 +1,56 @@
-[gd_scene load_steps=19 format=3 uid="uid://cawj070kh6mp8"]
+[gd_scene load_steps=28 format=3 uid="uid://cawj070kh6mp8"]
 
 [ext_resource type="PackedScene" uid="uid://tvebdcuu57of" path="res://scenes/player/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://d50k6t6fpcmy" path="res://scenes/HUD/hud.tscn" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://0evud2xwd8vf" path="res://assets/Assets2.png" id="2_jbj1t"]
 [ext_resource type="Shader" uid="uid://cr31eepua4ug0" path="res://shaders/hit_flash.gdshader" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dbnro5ef0ywo1" path="res://scenes/litter/litter.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dkcxrs3se153x" path="res://scenes/floor.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bwuv4ni8y6266" path="res://scenes/hazard/mushroom.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://m7arxyuq483l" path="res://scenes/hazard/hazard.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://vhuugw300asn" path="res://scenes/frog/frog.tscn" id="5_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dwsn134286ujq" path="res://scenes/floor_small.tscn" id="5_trceg"]
+[ext_resource type="PackedScene" uid="uid://us0pkl6u5mjd" path="res://scenes/big_ass_wall.tscn" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://2wkrteloo3i8" path="res://assets/Assets.png" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://bgtcjdj36kqb2" path="res://scenes/limit.gd" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bllny78y5h1ul" path="res://scenes/tree.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cbjbqwriyxsih" path="res://scenes/checkpoint.tscn" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://cwtnswrd7dngm" path="res://assets/music/ES_Some Time (Is All I Need) - Harper-Rose Peterson.mp3" id="15_jkv2x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
-size = Vector2(124, 20)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0ld40"]
+load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.ctex"
 
-[sub_resource type="Gradient" id="Gradient_o5qli"]
-colors = PackedColorArray(0.882353, 0.701961, 0, 1, 0.607843, 0.313726, 0.278431, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dp3eg"]
+load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.ctex"
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tefeu"]
-gradient = SubResource("Gradient_o5qli")
-width = 24
-height = 24
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_muem4"]
+load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.ctex"
 
-[sub_resource type="Gradient" id="Gradient_sugp2"]
-colors = PackedColorArray(1, 0.50691, 0.44035, 1, 1, 0.647059, 0.784314, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
+size = Vector2(489, 67)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jyhfs"]
-gradient = SubResource("Gradient_sugp2")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya4ey"]
+load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
-size = Vector2(440, 668)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(89, 454)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_trceg"]
+load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(151, 505)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
 shader = ExtResource("2_tbgi4")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jbj1t"]
+load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
+size = Vector2(149, 20)
 
 [node name="Main" type="Node2D"]
 
@@ -46,6 +61,7 @@ scroll_ignore_camera_zoom = true
 position = Vector2(955, 454)
 motion_scale = Vector2(0.45, 0.45)
 motion_mirroring = Vector2(1899, 927)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture = ExtResource("7_o6xl0")
@@ -54,24 +70,358 @@ region_rect = Rect2(401, 1998, 1902, 931)
 region_filter_clip_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-position = Vector2(955, 454)
+position = Vector2(952, 463)
 motion_scale = Vector2(1.149, 1.149)
 motion_mirroring = Vector2(1899, 0)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-180, 15)
 texture = ExtResource("7_o6xl0")
 region_enabled = true
 region_rect = Rect2(405, 934, 1899, 930)
 
-[node name="Floor" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(215, 582)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1438, 625)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D20" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1431, 667)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D21" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1502, 663)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D22" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2157, 663)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D27" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2820, 663)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D24" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2020, 666)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D25" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2682, 666)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D28" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2387.14, 150.846)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D29" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2912.14, 153.846)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D30" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2158.14, -1554.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D31" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2683.14, -1551.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D32" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2714.14, -1650.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D33" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3239.14, -1647.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D34" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2705.14, -2116.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D35" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3230.14, -2113.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D36" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2181.14, -2225.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D37" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2706.14, -2222.15)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D26" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3345, 665)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1499, 621)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D18" type="Sprite2D" parent="."]
+position = Vector2(-47, 621)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_dp3eg")
+region_enabled = true
+region_rect = Rect2(2439, 279, 130, 430)
+
+[node name="Sprite2D19" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-48, 660)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_dp3eg")
+region_enabled = true
+region_rect = Rect2(2408, 769, 186, 315)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(2159, 619)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D23" type="Sprite2D" parent="."]
+position = Vector2(2019, 621)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(2390, 108)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(2159, -1597)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(2715, -1692)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(2708, -2160)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+position = Vector2(2184, -2269)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+position = Vector2(2704, -2268)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D16" type="Sprite2D" parent="."]
+position = Vector2(2679, -1595)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D17" type="Sprite2D" parent="."]
+position = Vector2(3234, -1692)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(2821, 618)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(3340, 622)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(2679, 621)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(2908, 111)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D38" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1909.14, -367.56)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D39" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2434.14, -364.56)
+scale = Vector2(0.261, 0.261)
+texture = SubResource("CompressedTexture2D_0ld40")
+region_enabled = true
+region_rect = Rect2(2664, 771, 185, 313)
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(1912, -410.407)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Sprite2D40" type="Sprite2D" parent="."]
+position = Vector2(2430, -407.407)
+scale = Vector2(0.261, 0.261)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2645, 280, 128, 426)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(213, 607)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 10)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(388, 274, 1935, 425)
+region_filter_clip_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor"]
+z_index = -2
+position = Vector2(2, 69)
+scale = Vector2(0.255, 0.255)
+texture = SubResource("CompressedTexture2D_muem4")
+region_enabled = true
+region_rect = Rect2(401, 722, 1897, 417)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="Floor2" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(707, 582)
+position = Vector2(698, 584)
 
 [node name="Floor3" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(1197, 582)
+position = Vector2(1180, 585)
 
 [node name="Floor4" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(1761, 582)
@@ -83,10 +433,10 @@ position = Vector2(2421, 582)
 position = Vector2(3082, 581)
 
 [node name="Floor11" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2653, 74)
+position = Vector2(2650, 71)
 
 [node name="Floor19" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2190, -471)
+position = Vector2(2173, -449)
 
 [node name="Floor23" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(2420, -1635)
@@ -106,511 +456,104 @@ position = Vector2(3091, -1770)
 [node name="Floor24" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(2976, -1731)
 
-[node name="Floor20" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2187, -884)
-rotation = 1.57079
-
-[node name="Floor21" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2187, -1377)
-rotation = 1.57079
-
-[node name="Floor22" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2187, -1377)
-rotation = 1.57079
-
-[node name="Floor12" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2584, -159)
-rotation = 1.57079
-
-[node name="Floor13" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(2423, -213)
-rotation = 1.57079
-
-[node name="Floor8" type="StaticBody2D" parent="."]
-position = Vector2(2965, 407)
+[node name="Floor12" type="StaticBody2D" parent="."]
+position = Vector2(2623, -208)
 collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
+[node name="Sprite2D" type="Sprite2D" parent="Floor12"]
+z_index = -1
+position = Vector2(4.49994, 40.8552)
+scale = Vector2(0.152709, 0.226939)
+texture = SubResource("CompressedTexture2D_ya4ey")
+region_enabled = true
+region_rect = Rect2(4623, 590, 609, 1993)
+region_filter_clip_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor8"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor9" type="StaticBody2D" parent="."]
-position = Vector2(2785, 283)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor9"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor9"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor10" type="StaticBody2D" parent="."]
-position = Vector2(2969, 165)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor10"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor10"]
-texture = SubResource("GradientTexture2D_tefeu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor12"]
+position = Vector2(7.5, 44)
+shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="Floor14" type="StaticBody2D" parent="."]
-position = Vector2(2946, -274)
+z_index = -2
+position = Vector2(2154, -1409)
 collision_mask = 2
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor14"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor14"]
-texture = SubResource("GradientTexture2D_tefeu")
+z_index = -1
+position = Vector2(4.49994, 40.8552)
+scale = Vector2(0.152709, 0.226939)
+texture = SubResource("CompressedTexture2D_ya4ey")
+region_enabled = true
+region_rect = Rect2(4623, 590, 609, 1993)
+region_filter_clip_enabled = true
 
-[node name="Floor25" type="StaticBody2D" parent="."]
-position = Vector2(2660, -1841)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor25"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor25"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor39" type="StaticBody2D" parent="."]
-position = Vector2(2056, -1067)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor39"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor39"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor40" type="StaticBody2D" parent="."]
-position = Vector2(2049, -584)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor40"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor40"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor26" type="StaticBody2D" parent="."]
-position = Vector2(2466, -1925)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor26"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor26"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor27" type="StaticBody2D" parent="."]
-position = Vector2(2290, -2008)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor27"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor27"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor28" type="StaticBody2D" parent="."]
-position = Vector2(2112, -2075)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor28"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor28"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor29" type="StaticBody2D" parent="."]
-position = Vector2(2113, -2208)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor29"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor29"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor29" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor31" type="StaticBody2D" parent="."]
-position = Vector2(2767, -2407)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor31"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor31"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor31" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor32" type="StaticBody2D" parent="."]
-position = Vector2(2835, -2526)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor32"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor32"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor32" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor33" type="StaticBody2D" parent="."]
-position = Vector2(3043, -2598)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor33"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor33"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor33" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor34" type="StaticBody2D" parent="."]
-position = Vector2(2872, -2767)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor34"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor34"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor34" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor38" type="StaticBody2D" parent="."]
-position = Vector2(3156, -2705)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor38"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor38"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor38" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor35" type="StaticBody2D" parent="."]
-position = Vector2(3041, -2866)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor35"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor35"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor35" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor36" type="StaticBody2D" parent="."]
-position = Vector2(3150, -2971)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor36"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor36"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Mushroom" parent="Floor36" instance=ExtResource("4_choun")]
-position = Vector2(-18835, 19913)
-
-[node name="Floor18" type="StaticBody2D" parent="."]
-position = Vector2(2743, -374)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor18"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor18"]
-texture = SubResource("GradientTexture2D_tefeu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor14"]
+position = Vector2(7.5, 44)
+shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="Floor15" type="StaticBody2D" parent="."]
-position = Vector2(2948, -164)
+position = Vector2(2154, -958)
 collision_mask = 2
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor15"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor15"]
-texture = SubResource("GradientTexture2D_tefeu")
+z_index = -1
+position = Vector2(4.49994, 40.8552)
+scale = Vector2(0.152709, 0.226939)
+texture = SubResource("CompressedTexture2D_ya4ey")
+region_enabled = true
+region_rect = Rect2(4623, 590, 609, 1993)
+region_filter_clip_enabled = true
 
-[node name="Floor16" type="StaticBody2D" parent="."]
-position = Vector2(3202, 497)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor15"]
+position = Vector2(7.5, 44)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="Floor13" type="StaticBody2D" parent="."]
+position = Vector2(2379, -209)
 collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor16"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
+[node name="Sprite2D" type="Sprite2D" parent="Floor13"]
+z_index = -3
+position = Vector2(4.49994, 40.8552)
+scale = Vector2(0.152709, 0.226939)
+texture = SubResource("CompressedTexture2D_ya4ey")
+region_enabled = true
+region_rect = Rect2(4623, 590, 609, 1993)
+region_filter_clip_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor16"]
-texture = SubResource("GradientTexture2D_tefeu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor13"]
+position = Vector2(7.5, 44)
+shape = SubResource("RectangleShape2D_eb6dy")
 
-[node name="Floor17" type="StaticBody2D" parent="."]
-position = Vector2(2577, -466)
-collision_mask = 2
-metadata/_edit_group_ = true
+[node name="SmallFloor" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3041, -2866)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor17"]
-shape = SubResource("RectangleShape2D_tefeu")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor17"]
-texture = SubResource("GradientTexture2D_tefeu")
-
-[node name="Floor7" parent="." instance=ExtResource("3_tbgi4")]
+[node name="Floor7" type="StaticBody2D" parent="."]
 position = Vector2(3340, 347)
-rotation = 1.57079
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor7"]
+z_index = -1
+position = Vector2(-1, 17)
+scale = Vector2(0.255, 0.255)
+texture = SubResource("CompressedTexture2D_trceg")
+region_enabled = true
+region_rect = Rect2(4623, 590, 609, 1993)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
+position = Vector2(-0.5, 17.5)
+shape = SubResource("RectangleShape2D_a8y0u")
 
 [node name="HUD" parent="." instance=ExtResource("2_0wfyh")]
 
-[node name="BigAssWall" type="StaticBody2D" parent="."]
-position = Vector2(-248, 258)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall2" type="StaticBody2D" parent="."]
-position = Vector2(1718, -798)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall2"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall2"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall3" type="StaticBody2D" parent="."]
-position = Vector2(1719, -1471)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall3"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall3"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall4" type="StaticBody2D" parent="."]
-position = Vector2(1277, -1472)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall4"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall4"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall5" type="StaticBody2D" parent="."]
-position = Vector2(835, -1471)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall5"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall5"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall6" type="StaticBody2D" parent="."]
-position = Vector2(1727, -4149)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall6"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall6"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall7" type="StaticBody2D" parent="."]
-position = Vector2(1727, -3482)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall7"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall7"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall8" type="StaticBody2D" parent="."]
-position = Vector2(1723, -2808)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall8"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall8"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall9" type="StaticBody2D" parent="."]
-position = Vector2(1723, -2141)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall9"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall9"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall10" type="StaticBody2D" parent="."]
-position = Vector2(3440, -2054)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall10"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall10"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall11" type="StaticBody2D" parent="."]
-position = Vector2(3441, -2727)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall11"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall11"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall12" type="StaticBody2D" parent="."]
-position = Vector2(3441, -2727)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall12"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall12"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall13" type="StaticBody2D" parent="."]
-position = Vector2(3881, -2726)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall13"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall13"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall14" type="StaticBody2D" parent="."]
-position = Vector2(4326, -2726)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall14"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall14"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall15" type="StaticBody2D" parent="."]
-position = Vector2(4326, -2726)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall15"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall15"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
-
-[node name="BigAssWall16" type="StaticBody2D" parent="."]
-position = Vector2(4761, -2725)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BigAssWall16"]
-scale = Vector2(6.907, 10.498)
-texture = SubResource("GradientTexture2D_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigAssWall16"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_sugp2")
+[node name="BigAssWall5" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1719, -1472)
 
 [node name="Frog" parent="." instance=ExtResource("5_85g3d")]
 position = Vector2(981, 534)
@@ -633,9 +576,9 @@ position = Vector2(3182, -1796)
 [node name="Litter2" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2500, 30)
 
-[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+[node name="Nero" parent="." instance=ExtResource("1_o5qli")]
 material = SubResource("ShaderMaterial_tefeu")
-position = Vector2(2110, -2120)
+position = Vector2(118, 521)
 collision_mask = 31
 metadata/_edit_group_ = true
 
@@ -656,5 +599,204 @@ position = Vector2(2533, -2348)
 
 [node name="Tree" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(3877, -3254)
+
+[node name="BigAssWall17" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(-233, 270)
+
+[node name="BigAssWall18" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1713, -798)
+
+[node name="BigAssWall10" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(3434, -2058)
+
+[node name="BigAssWall9" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1720, -2141)
+
+[node name="BigAssWall8" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1720, -2810)
+
+[node name="BigAssWall7" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1719, -3478)
+
+[node name="BigAssWall6" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(1719, -4148)
+
+[node name="BigAssWall11" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(3435, -2728)
+
+[node name="BigAssWall12" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(3876, -2727)
+
+[node name="BigAssWall13" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(4319, -2726)
+
+[node name="BigAssWall14" parent="." instance=ExtResource("6_eb6dy")]
+position = Vector2(4763, -2724)
+
+[node name="SmallFloor2" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3200.88, 496.631)
+
+[node name="SmallFloor3" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3007, 408)
+
+[node name="SmallFloor4" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2837, 314)
+
+[node name="SmallFloor5" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3031, 215)
+
+[node name="SmallFloor6" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3158, 102)
+
+[node name="SmallFloor23" type="StaticBody2D" parent="."]
+position = Vector2(3342, 103)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallFloor23"]
+scale = Vector2(0.256, 0.256)
+texture = SubResource("CompressedTexture2D_jbj1t")
+region_enabled = true
+region_rect = Rect2(3708, 590, 689, 202)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallFloor23"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_muem4")
+one_way_collision = true
+
+[node name="SmallFloor7" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2766, -52)
+
+[node name="SmallFloor8" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2939.78, -163.393)
+
+[node name="SmallFloor9" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2968, -276)
+
+[node name="SmallFloor10" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2758.29, -373.649)
+
+[node name="SmallFloor25" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2629, -395)
+
+[node name="SmallFloor11" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2042, -574)
+
+[node name="SmallFloor24" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2161, -690)
+rotation = 3.14159
+
+[node name="SmallFloor12" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2046, -1105)
+
+[node name="SmallFloor13" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2649.47, -1869.02)
+
+[node name="Litter7" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(3082.22, -298.544)
+
+[node name="Litter6" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(2524, -2144)
+
+[node name="SmallFloor14" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2395, -1972)
+
+[node name="SmallFloor15" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2105.19, -2067.31)
+
+[node name="SmallFloor16" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2039, -2208)
+
+[node name="SmallFloor17" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2768.77, -2407.75)
+
+[node name="SmallFloor18" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2842.81, -2524.93)
+
+[node name="SmallFloor19" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3047.23, -2600.9)
+
+[node name="SmallFloor20" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3151.49, -2706.13)
+
+[node name="SmallFloor21" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(2863.8, -2773.98)
+
+[node name="SmallFloor22" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(3128, -3000)
+
+[node name="Litter" parent="SmallFloor22" instance=ExtResource("3_sugp2")]
+position = Vector2(28.1028, 671.322)
+
+[node name="Checkpoint" parent="." instance=ExtResource("14_a8y0u")]
+position = Vector2(2879, 28)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("14_a8y0u")]
+position = Vector2(2837.36, -2242.18)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jkv2x")
+volume_db = -15.345
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(2322, -1652)
+scale = Vector2(0.250306, 0.250306)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2980, 350, 479, 242)
+
+[node name="Sprite2D41" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(2574, -1653)
+scale = Vector2(0.344161, 0.344161)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2980, 350, 479, 242)
+
+[node name="Sprite2D42" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(2292, -471)
+scale = Vector2(0.154183, 0.154183)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3637, 169, 701, 447)
+
+[node name="Sprite2D43" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(554, 556)
+scale = Vector2(0.154183, 0.154183)
+texture = ExtResource("2_jbj1t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3637, 169, 701, 447)
+
+[node name="Sprite2D44" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(1621, 553)
+scale = Vector2(0.154183, 0.154183)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(3637, 169, 701, 447)
+
+[node name="Sprite2D45" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(2401.98, 566.27)
+scale = Vector2(0.202626, 0.186711)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(3637, 169, 701, 447)
+
+[node name="Sprite2D46" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(3044, 573)
+scale = Vector2(0.202626, 0.186711)
+texture = ExtResource("2_jbj1t")
+region_enabled = true
+region_rect = Rect2(2980, 350, 479, 242)
 
 [connection signal="area_entered" from="Limit" to="Limit" method="_on_area_entered"]

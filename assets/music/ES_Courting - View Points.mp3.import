@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://becge28nepy2e"
+path="res://.godot/imported/ES_Courting - View Points.mp3-21064ad8c430a499c2a7429af06ffcaa.mp3str"
+
+[deps]
+
+source_file="res://assets/music/ES_Courting - View Points.mp3"
+dest_files=["res://.godot/imported/ES_Courting - View Points.mp3-21064ad8c430a499c2a7429af06ffcaa.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

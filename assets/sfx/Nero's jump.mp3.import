@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d28bdj2ki45dm"
+path="res://.godot/imported/Nero's jump.mp3-04aa3e5b8eb9ff84643014549c9beeb5.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Nero's jump.mp3"
+dest_files=["res://.godot/imported/Nero's jump.mp3-04aa3e5b8eb9ff84643014549c9beeb5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="ImprovingGJ2025"
-run/main_scene="uid://cawj070kh6mp8"
+config/name="NerosAscent"
+run/main_scene="uid://cw6ud0ujigsrr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://bgsstrf7uvdkh"
 
@@ -59,6 +59,7 @@ enemy=""
 dialog=""
 hazard=""
 player=""
+checkpoint=""
 
 [input]
 
@@ -102,6 +103,7 @@ move_left={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="hazard"
 2d_physics/layer_5="collectible"
+2d_physics/layer_6="checkpoints"
 
 [rendering]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dli3as5hxxful"
+path="res://.godot/imported/Sapito's voice.mp3-18460d2d00163cc78c9af85ef930ef7d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Sapito's voice.mp3"
+dest_files=["res://.godot/imported/Sapito's voice.mp3-18460d2d00163cc78c9af85ef930ef7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

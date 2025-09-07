@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct6uufc34j55t"
+path="res://.godot/imported/Nero's auch.mp3-0745d64e513ddae76d1f59d11accd1c5.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Nero's auch.mp3"
+dest_files=["res://.godot/imported/Nero's auch.mp3-0745d64e513ddae76d1f59d11accd1c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
