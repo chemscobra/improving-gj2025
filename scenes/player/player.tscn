@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://beojvkikweo6x" path="res://scenes/player/components/jump_component.gd" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://tuafqsfeihwf" path="res://assets/SpriteSheet2.png" id="3_lvxji"]
 [ext_resource type="AudioStream" uid="uid://ct6uufc34j55t" path="res://assets/sfx/Nero's auch.mp3" id="5_p47bc"]
-[ext_resource type="AudioStream" uid="uid://d28bdj2ki45dm" path="res://assets/sfx/Nero's jump.mp3" id="6_75vfm"]
+[ext_resource type="AudioStream" uid="uid://khvncwnh0ev7" path="res://assets/sfx/Enhanced Nero's Jump.mp3" id="6_0owmy"]
 [ext_resource type="AudioStream" uid="uid://bgq0kpilgs5j7" path="res://assets/sfx/Nero's run improved.mp3" id="7_0owmy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lvxji"]
@@ -23,6 +23,40 @@ size = Vector2(43, 85)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 27.0
 height = 104.0
+
+[sub_resource type="Animation" id="Animation_h17s1"]
+resource_name = "Climb"
+length = 0.1106
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(1360, 1057, 265, 361)]
+}
+
+[sub_resource type="Animation" id="Animation_5gtgg"]
+resource_name = "Fall"
+length = 0.1972
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(929, 502, 257, 370), Rect2(1231, 601, 270, 373)]
+}
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 resource_name = "HitFlash"
@@ -84,6 +118,39 @@ tracks/0/keys = {
 "values": [Rect2(5, 41, 270, 368), Rect2(302, 41, 281, 368), Rect2(610, 46, 269, 363), Rect2(900, 55, 280, 356), Rect2(1204, 41, 285, 368), Rect2(1509, 41, 270, 368)]
 }
 
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "Jump"
+length = 0.1247
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(27, 555, 276, 370), Rect2(323, 512, 257, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_qek5x"]
+resource_name = "Peak"
+length = 0.1092
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(628, 434, 268, 349)]
+}
+
 [sub_resource type="Animation" id="Animation_lvxji"]
 length = 0.001
 tracks/0/type = "value"
@@ -128,73 +195,6 @@ tracks/0/keys = {
 "values": [Rect2(19, 1035, 297, 381), Rect2(339, 1045, 298, 374), Rect2(655, 1050, 317, 368), Rect2(1001, 1060, 291, 357), Rect2(339, 1045, 298, 374), Rect2(655, 1050, 317, 368), Rect2(1001, 1060, 291, 357)]
 }
 
-[sub_resource type="Animation" id="Animation_0owmy"]
-resource_name = "Jump"
-length = 0.1247
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Rect2(27, 555, 276, 370), Rect2(323, 512, 257, 360)]
-}
-
-[sub_resource type="Animation" id="Animation_qek5x"]
-resource_name = "Peak"
-length = 0.1092
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(628, 434, 268, 349)]
-}
-
-[sub_resource type="Animation" id="Animation_5gtgg"]
-resource_name = "Fall"
-length = 0.1972
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Rect2(929, 502, 257, 370), Rect2(1231, 601, 270, 373)]
-}
-
-[sub_resource type="Animation" id="Animation_h17s1"]
-resource_name = "Climb"
-length = 0.1106
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(1360, 1057, 265, 361)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
 _data = {
 &"Climb": SubResource("Animation_h17s1"),
@@ -207,9 +207,10 @@ _data = {
 &"Run": SubResource("Animation_75vfm")
 }
 
-[node name="Nero" type="CharacterBody2D" groups=["player"]]
+[node name="Nero" type="CharacterBody2D" node_paths=PackedStringArray("audios") groups=["player"]]
 collision_mask = 62
 script = ExtResource("1_8afob")
+audios = [NodePath("Audio"), NodePath("Jump"), NodePath("Run")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -275,11 +276,12 @@ autoplay = "Idle"
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_75vfm")
+stream = ExtResource("6_0owmy")
+volume_db = 5.628
 
 [node name="Run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0owmy")
-volume_db = -5.326
+volume_db = -13.354
 parameters/looping = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,4 @@
+[style name="text_box_style"]
+[voice path="res://assets/sfx/Nero's voice.mp3" volume="0.0"]
+nero: This is amazing! I understand now\: Being a Guardian of the Heights is not about reaching the top, but being worthy of the Mountain’s grace
+do GlobalState.emit_final_trigger()

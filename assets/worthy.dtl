@@ -1,0 +1,4 @@
+[style name="text_box_style"]
+[voice path="res://assets/sfx/Mountain's voice with revereb.mp3" volume="0.0"]
+moutain: You are worthy of reaching the top.
+do GlobalState.end_game()

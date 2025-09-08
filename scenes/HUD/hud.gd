@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var hearts_full: TextureRect = $HeartsFull
-@onready var litter_counter_label: Label = $Label
+@onready var litter_counter_label: Label = $HBoxContainer/Label
 
 func _ready() -> void:
 	GlobalState.health_changed.connect(load_hearts)

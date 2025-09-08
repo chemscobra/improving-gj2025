@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="NerosAscent"
-run/main_scene="uid://cw6ud0ujigsrr"
+run/main_scene="uid://dytscv66xkgus"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.682353, 0.882353, 1, 1)
 config/icon="uid://bgsstrf7uvdkh"
 
 [autoload]
@@ -23,10 +24,21 @@ GlobalState="*res://singletons/GlobalState.gd"
 [dialogic]
 
 directories/dch_directory={
+"moutain": "res://assets/moutain.dch",
+"nero": "res://characters/nero.dch",
 "timmy": "res://characters/timmy.dch",
 "toad": "res://characters/toad.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"final_nero": "res://assets/sfx/final_nero.dtl",
+"not_worthy": "res://assets/not_worthy.dtl",
+"timeline": "res://assets/timeline.dtl",
+"worthy": "res://assets/worthy.dtl"
+}
+layout/style_list=["res://assets/text_box_style.tres"]
+layout/default_style="res://assets/text_box_style.tres"
+glossary/default_case_sensitive=true
+variables={}
 
 [display]
 

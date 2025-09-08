@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dytscv66xkgus"]
+
+[ext_resource type="Script" uid="uid://dw7w6cots50gb" path="res://splash.gd" id="1_10vqf"]
+[ext_resource type="Texture2D" uid="uid://dgcfmjsy1utvl" path="res://assets/los_carpinchos.png" id="2_4rrho"]
+
+[node name="Splash" type="Node2D"]
+script = ExtResource("1_10vqf")
+
+[node name="LosCarpinchos" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(478, 294)
+scale = Vector2(0.546, 0.546)
+texture = ExtResource("2_4rrho")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbnro5ef0ywo1"]
+[gd_scene load_steps=5 format=3 uid="uid://dbnro5ef0ywo1"]
 
-[ext_resource type="Texture2D" uid="uid://2wkrteloo3i8" path="res://assets/Assets.png" id="2_b871r"]
+[ext_resource type="Texture2D" uid="uid://0evud2xwd8vf" path="res://assets/Assets2.png" id="2_b871r"]
 [ext_resource type="Script" uid="uid://cvcghiwkt6rpa" path="res://scenes/litter/litter.gd" id="2_o7cl4"]
+[ext_resource type="AudioStream" uid="uid://d15gktt1wba1j" path="res://assets/sfx/Picking up trash option 1.mp3" id="3_b871r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7cl4"]
 radius = 30.2655
@@ -13,7 +14,7 @@ script = ExtResource("2_o7cl4")
 scale = Vector2(0.104, 0.104)
 texture = ExtResource("2_b871r")
 region_enabled = true
-region_rect = Rect2(3525, 3181, 518, 355)
+region_rect = Rect2(4631, 5003, 677, 702)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 16
@@ -21,5 +22,8 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_o7cl4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b871r")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

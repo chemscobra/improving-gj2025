@@ -1,0 +1,8 @@
+[style name="text_box_style"]
+[voice path="res://assets/sfx/Nero's voice.mp3" volume="0.0"]
+nero: I am here to reach the top of the mountain! It’s the key to earning my last badge as cat scout\: Guardian of Heights!
+[voice path="res://assets/sfx/Sapito's voice.mp3" volume="0.0"]
+toad: The Mountain grew weary of her visitors after they showed nothing but ungratefulness so now the only way to reach the top is by earning her trust.
+[voice path="res://assets/sfx/Sapito's voice.mp3" volume="0.0"]
+toad: Remember your training and leave the place better than you found it. Heed my advice and upon reaching the end of the trail, the Mountain will let you pass
+do GlobalState.toad_finished()

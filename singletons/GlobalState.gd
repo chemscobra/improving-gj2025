@@ -3,10 +3,23 @@ extends Node
 
 signal health_changed(new_value: int)
 signal litter_counter_changed(new_value: int)
+signal control_player_changed
+signal final_trigger
 
 var _health: int = 3
 var _litter_counter: int = 0
 
+var _player_control_active = true
+var toad_talked = false
+var mountain_talked = false
+
+
+var player_control_active: bool:
+	set(value):
+		_player_control_active = value
+		emit_signal("control_player_changed", _player_control_active)
+	get:
+		return _player_control_active
 
 var health: int:
 	set(value):
@@ -31,6 +44,7 @@ func reset_counters():
 	previous_checkpoint_node = null
 	self.health = 3
 	self.litter_counter = 0
+	self.player_control_active = true
 
 func reset_health():
 	self.health = 3
@@ -38,3 +52,18 @@ func reset_health():
 
 func increment_litter(amount: int = 1):
 	litter_counter += amount
+
+
+func toad_finished()-> void:
+	activate_controls()
+	toad_talked = true
+
+
+func end_game()-> void:
+	get_tree().change_scene_to_file("res://scenes/final.tscn")
+
+func activate_controls() -> void:
+	player_control_active = true
+
+func emit_final_trigger() -> void:
+	emit_signal("final_trigger")

@@ -1,7 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwuv4ni8y6266"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4a7mi"]
-load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
+[ext_resource type="Texture2D" uid="uid://0evud2xwd8vf" path="res://assets/Assets2.png" id="1_yqr3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4a7mi"]
 radius = 240.898
@@ -11,9 +10,9 @@ height = 584.614
 scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("CompressedTexture2D_4a7mi")
+texture = ExtResource("1_yqr3v")
 region_enabled = true
-region_rect = Rect2(2728, 1895, 547, 614)
+region_rect = Rect2(2753, 4196, 547, 614)
 region_filter_clip_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy", "hazard"]]

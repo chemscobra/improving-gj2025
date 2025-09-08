@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d15gktt1wba1j"
+path="res://.godot/imported/Picking up trash option 1.mp3-ae496dd057ec1439bae059c3d5f6b9a9.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Picking up trash option 1.mp3"
+dest_files=["res://.godot/imported/Picking up trash option 1.mp3-ae496dd057ec1439bae059c3d5f6b9a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

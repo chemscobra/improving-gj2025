@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cawj070kh6mp8"]
+[gd_scene load_steps=22 format=3 uid="uid://cawj070kh6mp8"]
 
 [ext_resource type="PackedScene" uid="uid://tvebdcuu57of" path="res://scenes/player/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://d50k6t6fpcmy" path="res://scenes/HUD/hud.tscn" id="2_0wfyh"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://vhuugw300asn" path="res://scenes/frog/frog.tscn" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dwsn134286ujq" path="res://scenes/floor_small.tscn" id="5_trceg"]
 [ext_resource type="PackedScene" uid="uid://us0pkl6u5mjd" path="res://scenes/big_ass_wall.tscn" id="6_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://2wkrteloo3i8" path="res://assets/Assets.png" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://bgtcjdj36kqb2" path="res://scenes/limit.gd" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bllny78y5h1ul" path="res://scenes/tree.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cbjbqwriyxsih" path="res://scenes/checkpoint.tscn" id="14_a8y0u"]
@@ -23,20 +22,8 @@ load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dp3eg"]
 load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_muem4"]
-load_path = "res://.godot/imported/Assets2.png-19d34499ab7df755b5a8e2d323ec1a22.ctex"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
-size = Vector2(489, 67)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya4ey"]
-load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
 size = Vector2(89, 454)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_trceg"]
-load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(151, 505)
@@ -46,13 +33,12 @@ shader = ExtResource("2_tbgi4")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jbj1t"]
-load_path = "res://.godot/imported/Assets.png-9c84dd7f16fd2845fa15c2206793ce58.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(149, 20)
 
 [node name="Main" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("2_0wfyh")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
@@ -64,9 +50,9 @@ motion_mirroring = Vector2(1899, 927)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-texture = ExtResource("7_o6xl0")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(401, 1998, 1902, 931)
+region_rect = Rect2(401, 2180, 1912, 989)
 region_filter_clip_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -77,9 +63,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-180, 15)
-texture = ExtResource("7_o6xl0")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(405, 934, 1899, 930)
+region_rect = Rect2(400, 1229, 1899, 930)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(1438, 625)
@@ -241,7 +227,7 @@ region_enabled = true
 region_rect = Rect2(2645, 280, 128, 426)
 
 [node name="Sprite2D18" type="Sprite2D" parent="."]
-position = Vector2(-47, 621)
+position = Vector2(-43.727, 622.115)
 scale = Vector2(0.261, 0.261)
 texture = SubResource("CompressedTexture2D_dp3eg")
 region_enabled = true
@@ -249,7 +235,7 @@ region_rect = Rect2(2439, 279, 130, 430)
 
 [node name="Sprite2D19" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-48, 660)
+position = Vector2(-45, 665)
 scale = Vector2(0.261, 0.261)
 texture = SubResource("CompressedTexture2D_dp3eg")
 region_enabled = true
@@ -386,39 +372,20 @@ region_enabled = true
 region_rect = Rect2(2645, 280, 128, 426)
 
 [node name="Sprite2D40" type="Sprite2D" parent="."]
-position = Vector2(2430, -407.407)
+position = Vector2(2429, -412)
 scale = Vector2(0.261, 0.261)
 texture = ExtResource("2_jbj1t")
 region_enabled = true
 region_rect = Rect2(2645, 280, 128, 426)
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(213, 607)
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-position = Vector2(0, 10)
-scale = Vector2(0.255, 0.255)
-texture = ExtResource("2_jbj1t")
-region_enabled = true
-region_rect = Rect2(388, 274, 1935, 425)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="Floor"]
-z_index = -2
-position = Vector2(2, 69)
-scale = Vector2(0.255, 0.255)
-texture = SubResource("CompressedTexture2D_muem4")
-region_enabled = true
-region_rect = Rect2(401, 722, 1897, 417)
-region_filter_clip_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_o5qli")
-
 [node name="Floor2" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(698, 584)
+
+[node name="Litter" parent="Floor2" instance=ExtResource("3_sugp2")]
+position = Vector2(2646.27, -552.99)
+
+[node name="Floor8" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(218, 584)
 
 [node name="Floor3" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(1180, 585)
@@ -465,9 +432,9 @@ metadata/_edit_group_ = true
 z_index = -1
 position = Vector2(4.49994, 40.8552)
 scale = Vector2(0.152709, 0.226939)
-texture = SubResource("CompressedTexture2D_ya4ey")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(4623, 590, 609, 1993)
+region_rect = Rect2(4590, 870, 610, 1993)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor12"]
@@ -484,9 +451,9 @@ metadata/_edit_group_ = true
 z_index = -1
 position = Vector2(4.49994, 40.8552)
 scale = Vector2(0.152709, 0.226939)
-texture = SubResource("CompressedTexture2D_ya4ey")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(4623, 590, 609, 1993)
+region_rect = Rect2(4590, 870, 610, 1993)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor14"]
@@ -502,9 +469,9 @@ metadata/_edit_group_ = true
 z_index = -1
 position = Vector2(4.49994, 40.8552)
 scale = Vector2(0.152709, 0.226939)
-texture = SubResource("CompressedTexture2D_ya4ey")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(4623, 590, 609, 1993)
+region_rect = Rect2(4590, 870, 610, 1993)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor15"]
@@ -512,7 +479,7 @@ position = Vector2(7.5, 44)
 shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="Floor13" type="StaticBody2D" parent="."]
-position = Vector2(2379, -209)
+position = Vector2(2380, -209)
 collision_mask = 2
 metadata/_edit_group_ = true
 
@@ -520,9 +487,9 @@ metadata/_edit_group_ = true
 z_index = -3
 position = Vector2(4.49994, 40.8552)
 scale = Vector2(0.152709, 0.226939)
-texture = SubResource("CompressedTexture2D_ya4ey")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(4623, 590, 609, 1993)
+region_rect = Rect2(4590, 870, 610, 1993)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor13"]
@@ -539,27 +506,22 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor7"]
 z_index = -1
-position = Vector2(-1, 17)
+position = Vector2(1, 17)
 scale = Vector2(0.255, 0.255)
-texture = SubResource("CompressedTexture2D_trceg")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(4623, 590, 609, 1993)
+region_rect = Rect2(4590, 870, 610, 1993)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
 position = Vector2(-0.5, 17.5)
 shape = SubResource("RectangleShape2D_a8y0u")
 
-[node name="HUD" parent="." instance=ExtResource("2_0wfyh")]
-
 [node name="BigAssWall5" parent="." instance=ExtResource("6_eb6dy")]
 position = Vector2(1719, -1472)
 
 [node name="Frog" parent="." instance=ExtResource("5_85g3d")]
-position = Vector2(981, 534)
-
-[node name="Frog2" parent="." instance=ExtResource("5_85g3d")]
-position = Vector2(3620, -3095)
+position = Vector2(985, 551)
 
 [node name="Litter" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2102, 436)
@@ -640,7 +602,7 @@ position = Vector2(3200.88, 496.631)
 position = Vector2(3007, 408)
 
 [node name="SmallFloor4" parent="." instance=ExtResource("5_trceg")]
-position = Vector2(2837, 314)
+position = Vector2(3098, 321)
 
 [node name="SmallFloor5" parent="." instance=ExtResource("5_trceg")]
 position = Vector2(3031, 215)
@@ -655,9 +617,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="SmallFloor23"]
 scale = Vector2(0.256, 0.256)
-texture = SubResource("CompressedTexture2D_jbj1t")
+texture = ExtResource("2_jbj1t")
 region_enabled = true
-region_rect = Rect2(3708, 590, 689, 202)
+region_rect = Rect2(4540, 422, 689, 202)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SmallFloor23"]
@@ -706,7 +668,7 @@ position = Vector2(2395, -1972)
 position = Vector2(2105.19, -2067.31)
 
 [node name="SmallFloor16" parent="." instance=ExtResource("5_trceg")]
-position = Vector2(2039, -2208)
+position = Vector2(2039, -2199)
 
 [node name="SmallFloor17" parent="." instance=ExtResource("5_trceg")]
 position = Vector2(2768.77, -2407.75)

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cprsf2f4p5msq"]
+
+[ext_resource type="Texture2D" uid="uid://co6fpcidau5x2" path="res://assets/EndScreen.png" id="1_4pp6u"]
+[ext_resource type="Script" uid="uid://duth72y2vy11b" path="res://scenes/final.gd" id="1_qkvop"]
+[ext_resource type="Theme" uid="uid://b6koegqny7y6x" path="res://scenes/new_theme.tres" id="3_op64y"]
+[ext_resource type="AudioStream" uid="uid://becge28nepy2e" path="res://assets/music/ES_Courting - View Points.mp3" id="4_gh6hq"]
+
+[node name="Final" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkvop")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4pp6u")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 58.0
+offset_right = 400.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_op64y")
+theme_override_colors/default_color = Color(0.211938, 0.187676, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.998953, 0.681027, 0.444527, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Victoria Martin - Visual art
+Gustavo León - Game programmer
+Mora Quinteros - Sound art
+Game designers: Us, los Carpinchos.
+
+Special thanks to:
+@Lucianisrawing for his art contributions.
+Improving for the opportunity.
+Enzo, for his emotional support and specially 
+You, for helping Nero on his adventure."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gh6hq")
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 584.0
+offset_top = 456.0
+offset_right = 915.0
+offset_bottom = 537.0
+theme = ExtResource("3_op64y")
+text = "Back to Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

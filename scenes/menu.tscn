@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw6ud0ujigsrr"]
+[gd_scene load_steps=7 format=3 uid="uid://cw6ud0ujigsrr"]
 
 [ext_resource type="Script" uid="uid://cb6a6cup6fuyw" path="res://scenes/menu.gd" id="1_con2f"]
 [ext_resource type="Theme" uid="uid://b6koegqny7y6x" path="res://scenes/new_theme.tres" id="2_con2f"]
 [ext_resource type="Texture2D" uid="uid://ba3ftpofoe8nb" path="res://assets/Portada.png" id="2_mhnvy"]
 [ext_resource type="AudioStream" uid="uid://becge28nepy2e" path="res://assets/music/ES_Courting - View Points.mp3" id="4_mhnvy"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mhnvy"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_4ytvr"]
+events = [SubResource("InputEventKey_mhnvy")]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -41,7 +49,9 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_con2f")
-text = "Start"
+shortcut = SubResource("Shortcut_4ytvr")
+text = "Click to Start"
+flat = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_mhnvy")

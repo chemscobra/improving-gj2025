@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://khvncwnh0ev7"
+path="res://.godot/imported/Enhanced Nero's Jump.mp3-f6d5a412d94b6a527bf634d7d4e4c0b7.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Enhanced Nero's Jump.mp3"
+dest_files=["res://.godot/imported/Enhanced Nero's Jump.mp3-f6d5a412d94b6a527bf634d7d4e4c0b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
